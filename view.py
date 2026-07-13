@@ -12,6 +12,21 @@ class View(object):
         self._titolo = ft.Text("Indovina il numero",
                                color="blue", size=24)
 
+        self._txtNmax = ft.TextField(label= "Numero Max",
+                                     value=self._controller.getNmax(),
+                                     disabled=True)
+
+        self._txtTmax = ft.TextField(label= "Tentativi Max",
+                                    value=self._controller.getTmax(),
+                                    disabled=True)
+
+        self._txtT = ft.TextField(label= "Tentativi Rimanenti",
+                                 value=self._controller.getTentativi(),
+                                 disabled=True)
+
+        self._row1 = ft.Row(controls = [self._txtNmax, self._txtTmax, self._txtT])
+        self._page.add(self._row1)
+
         self._page.update()
 
     def setController(self,controller):
